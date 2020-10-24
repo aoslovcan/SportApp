@@ -38,3 +38,36 @@ server.get('/athlete', (req, res) => {
     )
     
   });
+
+  server.get('/feed', (req, res) => {
+    request(
+      { url: 'https://private-anon-509354d9a5-technicaltaskapi.apiary-mock.com/feed' },
+      (error, response, body) => {
+        if (error || response.statusCode !== 200) {
+          return res.status(500).json({ type: 'error', message: err.message });
+        }
+        res.end(JSON.stringify(body));
+        //console.log(JSON.stringify(body));
+      }
+    )
+    
+  });
+
+  server.get('/posts/:id', (req, res) => {
+    console.log('Request URL:', req.originalUrl);
+  console.log('Request URL:', req.params.id);
+
+    data = req.body
+    /*request(
+      { url: 'https://private-anon-509354d9a5-technicaltaskapi.apiary-mock.com/feed' },
+      (error, response, body) => {
+        if (error || response.statusCode !== 200) {
+          return res.status(500).json({ type: 'error', message: err.message });
+        }
+        res.end(JSON.stringify(body));
+        console.log(JSON.stringify(body));
+      }
+    )*/
+    
+  });
+

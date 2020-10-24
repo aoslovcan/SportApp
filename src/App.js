@@ -1,12 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Videos from './routers/Videos';
 
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Athlete from './routers/Athlete'
+import Navigation from './components/Navigation';
+import Feed from './routers/Feed';
 function App() {
   return (
     <div className="App">
-      <Videos/>
+    <Navigation/>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Athlete}/>
+        <Route path="/feed" exact component={Feed}/>
+      </Switch>
+    </Router>
     </div>
   );
 }
