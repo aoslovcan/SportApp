@@ -1,43 +1,51 @@
-import React,{ useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchFeed } from '../actions/index';
+import { Player } from 'video-react';
+import './style-feed.css';
+import '../../node_modules/video-react/dist/video-react.css';
 
 
- function Feed(){
-    const feed = useSelector(state => state.feed.feed);
+function Feed() {
+  const feed = useSelector(state => state.feed.feed);
 
-    console.log(feed);
+  const dispatch = useDispatch();
 
-    console.log(feed.map(m => m.athlete.name + m.video.url));
+  useEffect(() => {
 
-    const dispatch = useDispatch();
+    dispatch(fetchFeed());
 
-    useEffect(() => {
+  }, []);
 
-        dispatch(fetchFeed());
-      
-    }, []);
+  return (
+    <>
 
-    return(
+      <div className="container">
+        <div className="row">
 
-        feed.map(m =>   <div className="card" style={{width : '18rem'}}>
-        <img className="card-img-top" src={m.athlete.avatar}  alt="Card image cap"/>
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+          {feed.map(m => <div className="col-md-4">  <div className="card" >
+
+            <div className="card-body">
+              <h5 className="card-title">{m.athlete.name}</h5>
+              <p id="description" className="card-text">{m.description}</p>
+            </div>
+            <div className="card-body">
+              <Player
+                playsInline
+                poster={m.video.poster}
+                src={m.video.url} />
+            </div>
+            <div className="card-body">
+              <a href="#" className="card-link">Card link</a>
+              <a href="#" className="card-link">Another link</a>
+            </div>
+          </div>
+          </div>)}
         </div>
-        <ul className="list-group list-group-flush">
-          <li className="list-group-item">Cras justo odio</li>
-          <li className="list-group-item">Dapibus ac facilisis in</li>
-          <li className="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div className="card-body">
-          <a href="#" className="card-link">Card link</a>
-          <a href="#" className="card-link">Another link</a>
-        </div>
-      </div>)
-      
-    );
+      </div>
+    </>
+  );
 }
 export default Feed;
