@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Athlete from './routers/Athlete'
+import Home from './routers/Home'
 import Navigation from './components/Navigation';
 import Feed from './routers/Feed';
 function App() {
@@ -11,8 +10,8 @@ function App() {
     <Navigation/>
     <Router>
       <Switch>
-        <Route path="/" exact component={Athlete}/>
-        <Route path="/feed" exact component={Feed}/>
+      <Route path="/" exact component={Home}/>
+        <Route path="/feeds"  component={Feed}/>
       </Switch>
     </Router>
     </div>

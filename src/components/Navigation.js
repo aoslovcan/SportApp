@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
 
+import SportsSoccerIcon from '@material-ui/icons/SportsSoccer';
 import Link from '@material-ui/core/Link';
 import './style.css';
 
 export default function Navigation(props) {
-
+    let pathname = window.location.pathname;
+    useEffect(() => {
+        pathname = window.location.pathname;
+    }, [window.location.pathname]);
     
     return (
         <>
@@ -21,25 +24,25 @@ export default function Navigation(props) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul id="nav-category" className="navbar-nav col-md-12">
-                        <li className="nav-item  col-md-3">
-                            <Link className="nav-link" href= "/">Athlete </Link>
+                    <li className="navbar-brand col-md-3 ">
+                            
+                                 <SportsSoccerIcon/> SportApp
+                                
                         </li>
                         <li className="nav-item col-md-3 ">
-                            <Link className="nav-link" href= "/feed">
-                                Feed
+                            <Link className= "nav-link active"
+                             href= "/">
+                                Home
                                  </Link>
                         </li>
-                        <li class="nav-item col-md-3 ">
-                            <Link className="nav-link" href= "#">
-                                  Link 
-                                  </Link>
-                        </li>
-                        <li class="nav-item col-md-3 ">
-                            <Link className="nav-link"
-                             href= "#">
-                                Link
+                        <li className="nav-item col-md-3 ">
+                            <Link className={`${pathname.match('/feeds') ? 'open-link' : 'nav-link'}`}
+                             href= "/feeds">
+                                Feeds
                                  </Link>
                         </li>
+                      
+                     
                     </ul>
                 </div>
             </nav>

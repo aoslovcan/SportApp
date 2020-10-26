@@ -8,12 +8,23 @@
   
 }
 
+#nav-category .open-link{
+  
+    text-align: center ;
+    color :rgb(255, 255, 255);
+    text-transform: uppercase ;
+    border-bottom: 3px solid  rgb(165, 42, 42) ;
+    cursor: pointer;
+    padding: .5rem 1rem;
+    display: block;
+    text-decoration: none;
+   
+}
+
 .nav-link:hover{
  
-   border-bottom: 3px solid #00ffff !important;
-   text-decoration: none !important;
-
-   
+   border-bottom: 3px solid  rgb(165, 42, 42) !important;
+   text-decoration: none !important;  
 }
 
 .navbar{

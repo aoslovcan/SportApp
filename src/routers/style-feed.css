@@ -5,13 +5,89 @@
 .col-md-4{
     margin-top: 5px; 
 }
+.feed{
+    height: 100vh;
+}
+.feed .container{
+    padding : 10px;
+    margin-top:20px;
+}
 
+.video-react{
+    height: 150px !important;
+    border-radius: 10px !important;
+
+}
 .video-react-poster{
-    height: 220px !important;
+    height: 150px !important;
+    border-radius: 10px !important;
+
   
 } 
  .card-body .video-react{
-     height: 220px !important; ;
+     height: 150px !important; ;
     padding-top: 56.8px !important;
  }
 
+
+ .pagination{
+  
+    text-align: center !important;
+    width: 20%;
+    margin:auto;
+  
+    cursor: pointer;
+    z-index: 2;
+   
+}
+
+.pagination li {
+    font-size: 25px !important;
+  
+    color: white !important;
+   
+    padding: 5px;
+    
+}
+.pagination li a{
+    text-align: center;
+}
+.pagination li:hover{
+    font-size: 40px;
+}
+
+.pages .pagination{
+    text-align: center;
+}
+#pagi{
+    background-color:  rgb(128, 128, 128, 0.4);
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .feed  {
+      height: auto;
+     
+    }
+    .feed .container{
+       padding : 15px;
+    }
+  }
+
+  .home{
+      background-image: url('../assets/back.jpg') ;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100vh;
+  }
+
+  .inner{
+      position: relative;
+      top: 50%;
+      color: rgb(0,0,0);
+      background-color: rgb(255,255,255, 0.4);
+      width: 50%;
+      margin: auto;
+      border-radius: 10px;
+      z-index: 3;
+  }
